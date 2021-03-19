@@ -11,13 +11,18 @@ import (
 // Integration is an endpoint (like Nagios, email, or an API call) that generates events, which are normalized and de-duplicated by PagerDuty to create incidents.
 type Integration struct {
 	APIObject
-	Name             string     `json:"name,omitempty"`
-	Service          *APIObject `json:"service,omitempty"`
-	CreatedAt        string     `json:"created_at,omitempty"`
-	Vendor           *APIObject `json:"vendor,omitempty"`
-	Type             string     `json:"type,omitempty"`
-	IntegrationKey   string     `json:"integration_key,omitempty"`
-	IntegrationEmail string     `json:"integration_email,omitempty"`
+	Name                  string     `json:"name,omitempty"`
+	Service               *APIObject `json:"service,omitempty"`
+	CreatedAt             string     `json:"created_at,omitempty"`
+	Vendor                *APIObject `json:"vendor,omitempty"`
+	Type                  string     `json:"type,omitempty"`
+	IntegrationKey        string     `json:"integration_key,omitempty"`
+	IntegrationEmail      string     `json:"integration_email,omitempty"`
+	EmailIncidentCreation string     `json:"email_incident_creation,omitempty"`
+	EmailFilterMode       string     `json:"email_filter_mode,omitempty"`
+	EmailFilters          []Filter   `json:"email_filters,omitempty"`
+	EmailParsers          string     `json:"email_parsers"`
+	EmailParsingFallback  string     `json:"email_parsing_fallback"`
 }
 
 // InlineModel represents when a scheduled action will occur.
